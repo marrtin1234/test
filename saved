@@ -1,0 +1,23 @@
+local platform = script.Parent
+local dotyk = false
+
+
+
+platform.BrickColor = BrickColor.Red()
+
+local function zmizeni()
+	if not dotyk then
+		dotyk = true
+		for count = 1, 25 do
+			platform.Transparency = count/25
+			wait(2/50)
+		end
+		platform.CanCollide = false
+		wait(5)
+		platform.CanCollide = true
+		platform.Transparency = 0
+		dotyk = false
+	end
+end
+
+platform.Touched:Connect(zmizeni)
